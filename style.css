@@ -5,11 +5,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+/*PARA YUDITH*/
 h1{
   color: blanchedalmond;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   
+}
+.letra{
+  font-size: 24px;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.5s ease;
+    font-style: italic;
+    color: red;
 }
 :root {
   --dark-color: #010113;
