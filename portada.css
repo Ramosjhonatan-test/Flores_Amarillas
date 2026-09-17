@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --cream: #fff8e5;
+  --gold: #f6c945;
+  --gold-light: #ffe78a;
+  --ink: #28150e;
+  --rose: #d96c55;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; color: var(--cream); font-family: 'DM Sans', sans-serif; }
+.cover { min-height: 100svh; display: grid; place-items: center; position: relative; isolation: isolate; overflow: hidden; padding: clamp(1.25rem, 4vw, 3rem); background: linear-gradient(135deg, rgba(35, 17, 12, .72), rgba(56, 25, 17, .35)), url('img/amor.png') center / cover; }
+.cover::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 50% 45%, rgba(255, 213, 90, .27), transparent 32%), linear-gradient(transparent 60%, rgba(16, 9, 6, .65)); }
+.cover__glow { position: absolute; width: min(70vw, 36rem); aspect-ratio: 1; border: 1px solid rgba(255, 232, 141, .25); border-radius: 50%; box-shadow: 0 0 8rem rgba(246, 201, 69, .18); animation: breathe 5s ease-in-out infinite; }
+.cover-card { width: min(100%, 39rem); padding: clamp(1.7rem, 7vw, 4.5rem) clamp(1.25rem, 7vw, 4.25rem); text-align: center; background: rgba(38, 20, 13, .53); border: 1px solid rgba(255, 240, 175, .32); border-radius: 1.5rem; box-shadow: 0 1.5rem 4rem rgba(12, 6, 4, .36), inset 0 1px rgba(255, 255, 255, .12); backdrop-filter: blur(12px); animation: appear .9s ease both; }
+.eyebrow, .hint { letter-spacing: .16em; text-transform: uppercase; font-size: clamp(.64rem, 2vw, .75rem); }
+.eyebrow { margin: 0 0 1rem; color: var(--gold-light); }
+h1 { margin: 0; color: var(--cream); font: 600 clamp(3.1rem, 15vw, 7.7rem)/.85 'Cormorant Garamond', serif; letter-spacing: -.03em; }
+h1 span { display: block; color: var(--gold); font-style: italic; }
+.divider { display: flex; align-items: center; gap: .8rem; justify-content: center; margin: 1.5rem auto; color: var(--gold); }
+.divider i { display: block; width: clamp(2rem, 12vw, 5rem); height: 1px; background: rgba(255, 231, 138, .65); }
+.divider b { font-size: 1rem; }
+.message { max-width: 26rem; margin: 0 auto; color: rgba(255, 248, 229, .88); font: 500 clamp(1.05rem, 3.4vw, 1.4rem)/1.35 'Cormorant Garamond', serif; }
+.signature { margin: 1.25rem 0 2rem; color: rgba(255, 248, 229, .7); font-size: .9rem; }
+.signature strong { color: var(--gold-light); }
+.gift-button { display: inline-flex; align-items: center; justify-content: center; gap: .8rem; width: min(100%, 18rem); min-height: 3.5rem; padding: .8rem 1.1rem; color: var(--ink); text-decoration: none; font-weight: 700; background: linear-gradient(135deg, var(--gold-light), var(--gold)); border-radius: 999px; box-shadow: 0 .8rem 1.5rem rgba(246, 201, 69, .2); transition: transform .25s ease, box-shadow .25s ease; }
+.gift-button:hover, .gift-button:focus-visible { transform: translateY(-3px); box-shadow: 0 1rem 2rem rgba(246, 201, 69, .35); }
+.gift-button__icon { display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: rgba(40, 21, 14, .12); font-size: 1.2rem; }
+.hint { margin: 1.25rem 0 0; color: rgba(255, 248, 229, .5); font-size: .62rem; }
+.cover__petals { position: absolute; color: rgba(255, 231, 138, .55); font-size: clamp(2rem, 7vw, 4rem); animation: float 6s ease-in-out infinite; }
+.cover__petals--one { top: 12%; left: 8%; }
+.cover__petals--two { right: 8%; bottom: 13%; animation-delay: -2s; color: rgba(217, 108, 85, .7); }
+@keyframes appear { from { opacity: 0; transform: translateY(1.5rem) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes breathe { 50% { transform: scale(1.08); opacity: .6; } }
+@keyframes float { 50% { transform: translateY(-1rem) rotate(12deg); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

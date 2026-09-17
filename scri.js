@@ -1,4 +1,4 @@
-const poema = "Yudith, en este día de la amistad, te deseo alegría y felicidad🎉. Que la vida te regale sueños por alcanzar✨. y siempre encuentres razones para sonreír y amar❤️✨.";
+const poema = "Jhosselin, entre todas las flores amarillas, tú sigues siendo mi favorita: porque ninguna ilumina mis días como lo haces tú. Con cariño, Jhonatan.";
 const poemaElement = document.getElementById("poema");
 const palabras = poema.split(""); // Dividir en letras
 let index = 0;

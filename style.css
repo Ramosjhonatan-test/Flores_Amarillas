@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
 *,
 *::after,
 *::before {
@@ -5,6 +7,42 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.scene-copy {
+  position: fixed;
+  top: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  z-index: 40;
+  width: min(88vw, 30rem);
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff8e5;
+  pointer-events: none;
+  animation: scene-copy-in 1.2s ease both;
+}
+
+.scene-copy__date {
+  margin: 0 0 .15rem;
+  color: #ffe78a;
+  font: 700 .58rem/1 'DM Sans', sans-serif;
+  letter-spacing: .25em;
+}
+
+.scene-copy h1 {
+  margin: 0;
+  color: #fff8e5;
+  font: 600 clamp(1.7rem, 5.7vw, 3.5rem)/.9 'Cormorant Garamond', serif;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .6);
+}
+
+.scene-copy h1 span { color: #f6c945; font-style: italic; }
+.scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { max-width: 19rem; margin: .45rem auto 0; color: rgba(255, 248, 229, .82); font: 500 clamp(.78rem, 2vw, 1rem)/1.15 'Cormorant Garamond', serif; text-shadow: 0 1px 8px rgba(0, 0, 0, .7); }
+.scene-copy__from { margin: .28rem 0 0; color: rgba(255, 231, 138, .78); font: .58rem/1 'DM Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.back-button { position: fixed; top: 1.2rem; left: 1.2rem; z-index: 50; display: grid; place-items: center; width: 2.7rem; height: 2.7rem; border: 1px solid rgba(255, 231, 138, .4); border-radius: 50%; color: #fff8e5; background: rgba(1, 1, 19, .4); font-size: 1.5rem; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+.back-button:hover, .back-button:focus-visible { transform: translateX(-3px); background: rgba(246, 201, 69, .25); }
+@keyframes scene-copy-in { from { opacity: 0; transform: translate(-50%, -.75rem); } to { opacity: 1; transform: translate(-50%, 0); } }
+@media (max-width: 600px) { .scene-copy { top: 1rem; } .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { margin-top: .35rem; } .back-button { top: auto; bottom: 1.1rem; left: 1.1rem; } }
+@media (prefers-reduced-motion: reduce) { .scene-copy { animation: none; } .back-button { transition: none; } }
 /*PARA YUDITH*/
 h1{
   color: blanchedalmond;
@@ -13,12 +51,32 @@ h1{
   
 }
 .letra{
-  font-size: 24px;
-    opacity: 0; /* Inicialmente invisible */
-    transition: opacity 0.5s ease;
-    font-style: italic;
-    color: red;
+  position: fixed;
+  top: clamp(8.5rem, 19vh, 11rem);
+  left: 50%;
+  z-index: 300;
+  width: min(86vw, 30rem);
+  max-height: 24vh;
+  overflow: auto;
+  margin: 0;
+  padding: .9rem 1.15rem;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 231, 138, .28);
+  border-radius: 1rem;
+  background: rgba(8, 18, 25, .7);
+  box-shadow: 0 .8rem 2rem rgba(0, 0, 0, .22), inset 0 1px rgba(255, 255, 255, .08);
+  color: #fff8e5;
+  font: 500 clamp(.9rem, 2.5vw, 1.12rem)/1.35 'Cormorant Garamond', serif;
+  letter-spacing: .01em;
+  text-align: center;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .7);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  font-style: normal;
 }
+
+.letra::-webkit-scrollbar { width: .25rem; }
+.letra::-webkit-scrollbar-thumb { border-radius: 1rem; background: rgba(246, 201, 69, .6); }
 :root {
   --dark-color: #010113;
 }
