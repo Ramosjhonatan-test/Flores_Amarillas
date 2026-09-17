@@ -2156,3 +2156,29 @@ body {
     opacity: 1;
   }
 }
+
+/* Mantiene los grupos animados en capas separadas y reduce repaints costosos. */
+.bubbles,
+.memories {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout paint;
+}
+
+.flowers {
+  transform: translate3d(0, 0, 0) scale(.9);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.flower,
+.bubble,
+.memory {
+  backface-visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .flower__leafs::after { filter: blur(6vmin); }
+  .flower__grass__overlay { filter: blur(1vmin); }
+  .memory::after { filter: blur(6px); }
+}
