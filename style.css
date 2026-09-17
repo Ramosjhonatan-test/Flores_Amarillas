@@ -38,10 +38,22 @@
 .scene-copy h1 span { color: #ff9b4a; font-style: italic; }
 .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { max-width: 19rem; margin: .45rem auto 0; color: rgba(255, 241, 214, .9); font: 500 clamp(.78rem, 2vw, 1rem)/1.2 'Playfair Display', serif; text-shadow: 0 1px 8px rgba(0, 0, 0, .7); }
 .scene-copy__from { margin: .28rem 0 0; color: #ffc46b; font: .58rem/1 'DM Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.memories { position: fixed; inset: 0; z-index: 45; pointer-events: none; }
+.memory { position: absolute; width: clamp(7.4rem, 20vw, 11rem); aspect-ratio: 1; margin: 0; filter: drop-shadow(0 .8rem 1.2rem rgba(0, 0, 0, .45)); animation: memory-float 5s ease-in-out infinite; }
+.heart-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.memory--left { left: clamp(.5rem, 7vw, 5rem); top: clamp(18rem, 43vh, 25rem); transform: rotate(-10deg); }
+.memory--right { right: clamp(.5rem, 7vw, 5rem); top: clamp(20rem, 49vh, 29rem); transform: rotate(10deg); animation-delay: -2.3s; }
+.memory__heart, .memory img { position: absolute; inset: 0; width: 100%; height: 100%; clip-path: url('#soft-heart'); }
+.memory__heart { transform: scale(1.13); background: linear-gradient(145deg, #ffd27a, #ef734d 48%, #b53f5b); opacity: .9; filter: blur(2px); }
+.memory img { z-index: 1; object-fit: cover; padding: .28rem; background: rgba(255, 241, 214, .78); object-position: 50% 16%; }
+.memory--left img { object-position: 50% 12%; }
+.memory--right img { object-position: 50% 18%; }
+.memory::after { content: ''; position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 166, 92, .22), transparent 68%); filter: blur(10px); }
+@keyframes memory-float { 0%, 100% { margin-top: 0; } 50% { margin-top: -.6rem; } }
 .back-button { position: fixed; top: 1.2rem; left: 1.2rem; z-index: 50; display: grid; place-items: center; width: 2.7rem; height: 2.7rem; border: 1px solid rgba(255, 231, 138, .4); border-radius: 50%; color: #fff8e5; background: rgba(1, 1, 19, .4); font-size: 1.5rem; text-decoration: none; transition: transform .2s ease, background .2s ease; }
 .back-button:hover, .back-button:focus-visible { transform: translateX(-3px); background: rgba(246, 201, 69, .25); }
 @keyframes scene-copy-in { from { opacity: 0; transform: translate(-50%, -.75rem); } to { opacity: 1; transform: translate(-50%, 0); } }
-@media (max-width: 600px) { .scene-copy { top: 1rem; } .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { margin-top: .35rem; } .back-button { top: auto; bottom: 1.1rem; left: 1.1rem; } }
+@media (max-width: 600px) { .scene-copy { top: 1rem; } .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { margin-top: .35rem; } .letra { top: 8.4rem; width: 88vw; padding: .55rem .65rem; font-size: .78rem; line-height: 1.16; } .memory { width: 6.7rem; } .memory--left { left: .1rem; top: 35vh; } .memory--right { right: .1rem; top: 42vh; } .back-button { top: auto; bottom: 1.1rem; left: 1.1rem; } }
 @media (prefers-reduced-motion: reduce) { .scene-copy { animation: none; } .back-button { transition: none; } }
 /*PARA YUDITH*/
 h1{
@@ -52,22 +64,22 @@ h1{
 }
 .letra{
   position: fixed;
-  top: clamp(8.5rem, 19vh, 11rem);
+  top: clamp(8.2rem, 18vh, 10.5rem);
   left: 50%;
   z-index: 300;
-  width: min(86vw, 30rem);
-  max-height: 24vh;
-  overflow: auto;
+  width: min(88vw, 30rem);
+  max-height: 31vh;
+  overflow: hidden;
   margin: 0;
-  padding: .9rem 1.15rem;
+  padding: .6rem .75rem;
   transform: translateX(-50%);
   border: 1px solid rgba(255, 155, 74, .38);
   border-radius: 1rem;
   background: rgba(8, 18, 25, .7);
   box-shadow: 0 .8rem 2rem rgba(0, 0, 0, .22), inset 0 1px rgba(255, 255, 255, .08);
   color: #fff1d6;
-  font: 500 clamp(.9rem, 2.5vw, 1.12rem)/1.4 'Playfair Display', serif;
-  letter-spacing: .01em;
+  font: 500 clamp(.76rem, 2.15vw, 1rem)/1.18 'Playfair Display', serif;
+  letter-spacing: 0;
   text-align: center;
   text-shadow: 0 1px 5px rgba(0, 0, 0, .7);
   opacity: 0;

@@ -9,7 +9,7 @@
 
 </head>
 <body class="container">
-  <audio id="musica-fondo" autoplay loop preload="auto">
+  <audio id="musica-fondo" autoplay loop playsinline preload="auto">
     <source src="./img/musica_fondo.mp3" type="audio/mpeg">
   </audio>
  
@@ -20,6 +20,23 @@
     <p>Entre tantas flores amarillas, tú sigues siendo mi favorita.</p>
     <p class="scene-copy__from">Con cariño, Jhonatan</p>
   </header>
+  <aside class="memories" aria-label="Nuestros recuerdos">
+    <svg class="heart-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="soft-heart" clipPathUnits="objectBoundingBox">
+          <path d="M.5 .92 C.45 .87 .08 .59 .06 .34 C.04 .14 .18 .04 .32 .05 C.41 .05 .47 .11 .5 .2 C.53 .11 .59 .05 .68 .05 C.82 .04 .96 .14 .94 .34 C.92 .59 .55 .87 .5 .92Z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+    <figure class="memory memory--left">
+      <span class="memory__heart" aria-hidden="true"></span>
+      <img src="./img/jhoss1.jpeg" alt="Recuerdo de Jhosselin">
+    </figure>
+    <figure class="memory memory--right">
+      <span class="memory__heart" aria-hidden="true"></span>
+      <img src="./img/jhoss2.jpeg" alt="Recuerdo especial de Jhosselin">
+    </figure>
+  </aside>
   <div class="flowers">
     <div class="flower flower--1">
       <div class="flower__leafs flower__leafs--1">
