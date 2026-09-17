@@ -53,7 +53,7 @@
 .back-button { position: fixed; top: 1.2rem; left: 1.2rem; z-index: 50; display: grid; place-items: center; width: 2.7rem; height: 2.7rem; border: 1px solid rgba(255, 231, 138, .4); border-radius: 50%; color: #fff8e5; background: rgba(1, 1, 19, .4); font-size: 1.5rem; text-decoration: none; transition: transform .2s ease, background .2s ease; }
 .back-button:hover, .back-button:focus-visible { transform: translateX(-3px); background: rgba(246, 201, 69, .25); }
 @keyframes scene-copy-in { from { opacity: 0; transform: translate(-50%, -.75rem); } to { opacity: 1; transform: translate(-50%, 0); } }
-@media (max-width: 600px) { .scene-copy { top: 1rem; } .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { margin-top: .35rem; } .letra { top: 8.4rem; width: 88vw; padding: .55rem .65rem; font-size: .78rem; line-height: 1.16; } .memory { width: 6.7rem; } .memory--left { left: .1rem; top: 35vh; } .memory--right { right: .1rem; top: 42vh; } .back-button { top: auto; bottom: 1.1rem; left: 1.1rem; } }
+@media (max-width: 600px) { .scene-copy { top: 1rem; } .scene-copy > p:not(.scene-copy__date):not(.scene-copy__from) { margin-top: .35rem; } .letra { top: clamp(6rem, 14vh, 8rem); width: 88vw; padding: .7rem .8rem; font-size: .78rem; line-height: 1.25; max-height: 50vh; } .memory { width: 6.7rem; } .memory--left { left: .1rem; top: clamp(28rem, 62vh, 35rem); } .memory--right { right: .1rem; top: clamp(30rem, 68vh, 38rem); } .back-button { top: auto; bottom: 1.1rem; left: 1.1rem; } }
 @media (prefers-reduced-motion: reduce) { .scene-copy { animation: none; } .back-button { transition: none; } }
 /*PARA YUDITH*/
 h1{
@@ -64,31 +64,38 @@ h1{
 }
 .letra{
   position: fixed;
-  top: clamp(8.2rem, 18vh, 10.5rem);
+  top: clamp(7.5rem, 16vh, 10rem);
   left: 50%;
   z-index: 300;
   width: min(88vw, 30rem);
-  max-height: 31vh;
-  overflow: hidden;
+  max-height: 55vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin: 0;
-  padding: .6rem .75rem;
+  padding: 1rem 1.2rem;
   transform: translateX(-50%);
-  border: 1px solid rgba(255, 155, 74, .38);
+  border: 1px solid rgba(255, 194, 109, .55);
   border-radius: 1rem;
-  background: rgba(8, 18, 25, .7);
-  box-shadow: 0 .8rem 2rem rgba(0, 0, 0, .22), inset 0 1px rgba(255, 255, 255, .08);
-  color: #fff1d6;
-  font: 500 clamp(.76rem, 2.15vw, 1rem)/1.18 'Playfair Display', serif;
-  letter-spacing: 0;
+  background: linear-gradient(180deg, rgba(12, 26, 34, .92), rgba(5, 12, 18, .97));
+  box-shadow: 0 .8rem 2rem rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(255, 255, 255, .06), 0 0 20px rgba(255, 170, 79, .15);
+  color: #fffaf0;
+  font: 600 clamp(.76rem, 2.15vw, 1.03rem)/1.45 'Playfair Display', serif;
+  letter-spacing: .02em;
   text-align: center;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, .7);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 1), 0 0 14px rgba(0, 0, 0, .95), 0 2px 20px rgba(0, 0, 0, .8);
   opacity: 0;
   transition: opacity 0.5s ease;
   font-style: normal;
+  backdrop-filter: blur(6px);
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 .letra::-webkit-scrollbar { width: .25rem; }
 .letra::-webkit-scrollbar-thumb { border-radius: 1rem; background: rgba(255, 155, 74, .7); }
+.poema-parrafo { margin: 0 0 .6rem 0; }
+.poema-parrafo:last-child { margin-bottom: 0; }
 :root {
   --dark-color: #010113;
 }
