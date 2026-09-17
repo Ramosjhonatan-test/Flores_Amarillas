@@ -10,6 +10,8 @@ if (musica) {
   };
 
   iniciarMusica();
+  window.addEventListener("load", iniciarMusica, { once: true });
+  window.addEventListener("pageshow", iniciarMusica, { once: true });
   document.addEventListener("pointerdown", iniciarMusica, { once: true });
   document.addEventListener("keydown", iniciarMusica, { once: true });
 }

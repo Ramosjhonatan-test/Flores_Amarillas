@@ -11,6 +11,14 @@
 * { box-sizing: border-box; }
 html, body { min-height: 100%; }
 body { margin: 0; color: var(--cream); font-family: 'DM Sans', sans-serif; }
+.sunflower-loader { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(1.4rem, 5vw, 2rem); padding: 1.5rem; background: #24120d; transition: opacity .8s ease, visibility .8s ease; }
+.sunflower-loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+.sunflower-loader__flower { position: relative; flex: 0 0 auto; width: clamp(8rem, 42vw, 13rem); aspect-ratio: 1; animation: loader-breathe 2.5s ease-in-out infinite; }
+.sunflower-loader__petal { position: absolute; top: 50%; left: 50%; width: 22%; height: 48%; border-radius: 55% 45% 50% 50%; background: linear-gradient(90deg, #b46b18, #ffd85a 48%, #fff0a0); box-shadow: inset 0 0 .7rem rgba(255, 247, 184, .5), 0 0 1rem rgba(255, 193, 57, .15); opacity: .12; transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateY(-55%); transform-origin: 50% 100%; animation: petal-bloom .2s calc(var(--i) * .12s) ease-out forwards; }
+.sunflower-loader__center { position: absolute; top: 50%; left: 50%; width: 32%; aspect-ratio: 1; z-index: 2; border: .28rem solid #d58a2a; border-radius: 50%; background: radial-gradient(circle, #21100d 0 28%, #542517 29% 53%, #a45b20 54% 68%, #35150e 69%); box-shadow: 0 0 0 .3rem rgba(255, 208, 81, .16), 0 0 1.6rem rgba(255, 180, 48, .45); transform: translate(-50%, -50%); animation: center-glow .8s 1.4s ease-in-out both; }
+.sunflower-loader__label { position: relative; z-index: 3; max-width: 90vw; margin: 0; color: #ffe6a0; font: 600 clamp(.95rem, 3.5vw, 1.3rem)/1.2 'Playfair Display', serif; letter-spacing: .06em; text-align: center; text-shadow: 0 2px 1rem rgba(0, 0, 0, .5); }
+.sunflower-loader__dots { color: #e99b3f; font: 700 1.1rem/1 'DM Sans', sans-serif; letter-spacing: .25em; animation: dots-pulse 1s ease-in-out infinite; }
+.cover { opacity: 0; animation: cover-ready .8s 2.55s ease forwards; }
 .cover { min-height: 100svh; display: grid; place-items: center; position: relative; isolation: isolate; overflow: hidden; padding: clamp(1.25rem, 4vw, 3rem); background: linear-gradient(135deg, rgba(35, 17, 12, .72), rgba(56, 25, 17, .35)), url('img/amor.png') center / cover; }
 .cover::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 50% 45%, rgba(255, 213, 90, .27), transparent 32%), linear-gradient(transparent 60%, rgba(16, 9, 6, .65)); }
 .cover__glow { position: absolute; width: min(70vw, 36rem); aspect-ratio: 1; border: 1px solid rgba(255, 232, 141, .25); border-radius: 50%; box-shadow: 0 0 8rem rgba(246, 201, 69, .18); animation: breathe 5s ease-in-out infinite; }
@@ -35,4 +43,9 @@ h1 span { display: block; color: var(--gold); font-style: italic; }
 @keyframes appear { from { opacity: 0; transform: translateY(1.5rem) scale(.98); } to { opacity: 1; transform: none; } }
 @keyframes breathe { 50% { transform: scale(1.08); opacity: .6; } }
 @keyframes float { 50% { transform: translateY(-1rem) rotate(12deg); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+@keyframes petal-bloom { to { opacity: 1; } }
+@keyframes center-glow { from { opacity: 0; transform: translate(-50%, -50%) scale(.7); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes loader-breathe { 50% { transform: scale(1.04) rotate(2deg); } }
+@keyframes dots-pulse { 50% { opacity: .35; } }
+@keyframes cover-ready { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .sunflower-loader { opacity: 0; visibility: hidden; } .cover { opacity: 1; } }
