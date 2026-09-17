@@ -15,7 +15,6 @@ body { margin: 0; color: var(--cream); font-family: 'DM Sans', sans-serif; }
 .sunflower-loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
 .sunflower-loader__flower { position: relative; flex: 0 0 auto; width: clamp(8rem, 42vw, 13rem); aspect-ratio: 1; animation: loader-breathe 2.5s ease-in-out infinite; }
 .sunflower-loader__petal { position: absolute; top: 50%; left: 50%; width: 22%; height: 48%; border-radius: 55% 45% 50% 50%; background: linear-gradient(90deg, #b46b18, #ffd85a 48%, #fff0a0); box-shadow: inset 0 0 .7rem rgba(255, 247, 184, .5), 0 0 1rem rgba(255, 193, 57, .15); opacity: .12; transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateY(-55%); transform-origin: 50% 100%; animation: petal-bloom .2s calc(var(--i) * .12s) ease-out forwards; }
-.sunflower-loader__center { position: absolute; top: 50%; left: 50%; width: 32%; aspect-ratio: 1; z-index: 2; border: .28rem solid #d58a2a; border-radius: 50%; background: radial-gradient(circle, #21100d 0 28%, #542517 29% 53%, #a45b20 54% 68%, #35150e 69%); box-shadow: 0 0 0 .3rem rgba(255, 208, 81, .16), 0 0 1.6rem rgba(255, 180, 48, .45); transform: translate(-50%, -50%); animation: center-glow .8s 1.4s ease-in-out both; }
 .sunflower-loader__label { position: relative; z-index: 3; max-width: 90vw; margin: 0; color: #ffe6a0; font: 600 clamp(.95rem, 3.5vw, 1.3rem)/1.2 'Playfair Display', serif; letter-spacing: .06em; text-align: center; text-shadow: 0 2px 1rem rgba(0, 0, 0, .5); }
 .sunflower-loader__dots { color: #e99b3f; font: 700 1.1rem/1 'DM Sans', sans-serif; letter-spacing: .25em; animation: dots-pulse 1s ease-in-out infinite; }
 .cover { opacity: 0; animation: cover-ready .8s 2.55s ease forwards; }
@@ -44,7 +43,6 @@ h1 span { display: block; color: var(--gold); font-style: italic; }
 @keyframes breathe { 50% { transform: scale(1.08); opacity: .6; } }
 @keyframes float { 50% { transform: translateY(-1rem) rotate(12deg); } }
 @keyframes petal-bloom { to { opacity: 1; } }
-@keyframes center-glow { from { opacity: 0; transform: translate(-50%, -50%) scale(.7); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 @keyframes loader-breathe { 50% { transform: scale(1.04) rotate(2deg); } }
 @keyframes dots-pulse { 50% { opacity: .35; } }
 @keyframes cover-ready { to { opacity: 1; } }
